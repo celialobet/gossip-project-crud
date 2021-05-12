@@ -18,7 +18,6 @@ class PagesController < ApplicationController
   end
 
   def show_author
-    @user = User.find(params[:id])
   end  
 
 end

@@ -5,7 +5,7 @@
   <div class="card-body">
     <blockquote class="blockquote mb-0">
       <p><%= Gossip.find(params[:id]).content %></p>
-      <footer class="blockquote-footer"><%= link_to "#{Gossip.find(params[:id]).user.first_name}" %> <%= link_to "#{Gossip.find(params[:id]).user.last_name}" %> from <%= Gossip.find(params[:id]).user.city.name %> </footer>
+      <footer class="blockquote-footer"><%= link_to "#{Gossip.find(params[:id]).user.first_name}",{controller: "pages", action: "show_author", id: Gossip.find(params[:id]).id} %> <%= link_to "#{Gossip.find(params[:id]).user.last_name}" %> from <%= Gossip.find(params[:id]).user.city.name %> </footer>
     </blockquote>
   </div>
 </div>
