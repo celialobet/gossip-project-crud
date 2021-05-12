@@ -1,0 +1,17 @@
+<h1>Welcome to The Gossip Project !</h1>
+<p>Here are our juicy gossips:</p>
+
+<div class="container">
+  <div class="row row-cols-4">
+    <% @gossips.each do |gossip| %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= gossip.title %></h5>
+          <h6 class="card-subtitle mb-2 text-muted">Gossip n°<%= gossip.id%></h6>
+          <p class="card-text">Author of the gossip: <%= link_to "#{gossip.user.first_name}",{controller: "pages", action: "show_author", id: gossip.id} %></p>
+          <%= link_to "Read the gossip", {controller: "gossips", action: "show", id: gossip.id}, class: "btn btn-primary mt-3" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

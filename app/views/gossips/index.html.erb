@@ -1,0 +1,25 @@
+<% flash.each do |type, msg| %>
+  <div class="alert alert-success my-3" role="alert">
+    <%= msg %>
+  </div>
+<% end %>
+<br>
+
+<div class="container">
+
+<div class="list-group">
+  <% @gossips.each do |gossip| %>
+    <div class="list-group-item list-group-item-action">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><%= gossip.title %> Gossip n°<%= gossip.id%></h5>
+        <small>3 days ago</small>
+      </div>
+      
+      <small>Author of the gossip: <%= link_to "#{gossip.user.first_name}",{controller: "pages", action: "show_author", id: gossip.id} %></small>
+  
+      <p class="mb-1"><%= link_to "Read the gossip", {controller: "gossips", action: "show", id: gossip.id}, class: "btn btn-primary mt-3" %></p>
+    </div>
+  <% end %>
+</div>
+
+</div>
