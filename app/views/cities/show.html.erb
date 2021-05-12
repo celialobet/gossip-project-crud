@@ -1,9 +1,6 @@
-<% flash.each do |type, msg| %>
-  <div class="alert alert-success my-3" role="alert">
-    <%= msg %>
-  </div>
-<% end %>
-<br>
+<h1>Gossips from <%= Gossip.find(params[:id]).user.city.name %></h1>
+
+<!--to be modified-->
 
 <div class="container">
   <div class="list-group">

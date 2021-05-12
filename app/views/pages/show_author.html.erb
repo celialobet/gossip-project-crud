@@ -5,6 +5,6 @@
     <p>Description: <%= Gossip.find(params[:id]).user.description %></p>
     <p>Email: <%= Gossip.find(params[:id]).user.email %></p>
     <p>Age: <%= Gossip.find(params[:id]).user.age %></p>
-    <p>City: <%= Gossip.find(params[:id]).user.city.name %></p>
+    <p>City: <%= link_to "#{Gossip.find(params[:id]).user.city.name}", {controller: "cities", action: "show", id: Gossip.find(params[:id]).id}%></p>
   </div>
       

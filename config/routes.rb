@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/welcome/:user_name', to: 'pages#welcome'
   get '/user/:id', to: 'pages#show_author'
   resources :gossips
+  resources :cities, only: [:show]
 end
