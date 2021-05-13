@@ -18,6 +18,7 @@ class UsersController < ApplicationController
       'description' => params[:description],
       'age' => params[:age],
       'email' => params[:email],
+      # 'city' => city,
       'password' => params[:password],
       'password_confirmation' => params[:password_confirmation]
     )

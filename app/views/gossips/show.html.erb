@@ -2,12 +2,12 @@
 <div class="container">
   <div class="card">
     <div class="card-header">
-      <%= Gossip.find(params[:id]).title %> - Gossip n°<%= params[:id] %>
+      <%= @gossip.title %> - Gossip n°<%= params[:id] %>
     </div>
     <div class="card-body">
       <blockquote class="blockquote mb-0">
-        <p><%= Gossip.find(params[:id]).content %></p>
-        <footer class="blockquote-footer"><%= link_to "#{Gossip.find(params[:id]).user.first_name}",{controller: "users", action: "show", id: Gossip.find(params[:id]).id} %> from <%= Gossip.find(params[:id]).user.city.name %> </footer>
+        <p><%= @gossip.content %></p>
+        <footer class="blockquote-footer"><%= link_to "#{@gossip.user.first_name}",{controller: "users", action: "show", id: @gossip.id} %> from <%= @gossip.user.city.name %> </footer>
       </blockquote>
     </div>
   </div>

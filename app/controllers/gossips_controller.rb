@@ -14,6 +14,7 @@ class GossipsController < ApplicationController
       'content' => params[:content]
     )
     @gossip.user = User.find_by(id: session[:user_id])
+    @gossip.user = current_user
     if @gossip.save
       flash[:success] = "We saved your gossip!"
       redirect_to root_path
@@ -23,6 +24,7 @@ class GossipsController < ApplicationController
   end
 
   def show
+    @gossip = Gossip.find(params[:id])
   end
 
   def edit

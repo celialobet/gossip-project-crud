@@ -3,4 +3,5 @@ class CitiesController < ApplicationController
     @gossips = Gossip.all
     #to be modified
   end
+
 end
