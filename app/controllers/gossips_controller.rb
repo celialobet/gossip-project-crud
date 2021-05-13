@@ -1,4 +1,6 @@
 class GossipsController < ApplicationController
+  before_action :authenticate_user, only: [:show, :new, :create, :edit, :update, :destroy]
+
   def index
     @gossips = Gossip.all
   end
@@ -9,16 +11,14 @@ class GossipsController < ApplicationController
   def create
     @gossip = Gossip.new(
       'title' => params[:title],
-      'content' => params[:content],
-      'user_id' => User.find_by(first_name: "anonymous").id,
-      'tag_id' => Tag.all.sample.id)
-  
-    if @gossip.save 
-      flash.alert = "We saved your gossip!"
-      redirect_to gossips_path
+      'content' => params[:content]
+    )
+    @gossip.user = User.find_by(id: session[:user_id])
+    if @gossip.save
+      flash[:success] = "We saved your gossip!"
+      redirect_to root_path
     else
-      flash.alert = "We couldn't save your gossip!"
-      render 'new'
+      render :new
     end
   end
 
@@ -45,8 +45,11 @@ class GossipsController < ApplicationController
     redirect_to @gossip
   end
 
-  # def new_gossip_comment
-  #   @gossip = Gossip.find(params[:id])
-  # end
+  def authenticate_user
+    unless current_user
+      flash[:danger] = "Please log in."
+      redirect_to new_session_path
+    end
+  end
   
 end

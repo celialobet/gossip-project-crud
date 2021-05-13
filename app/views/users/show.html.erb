@@ -1,9 +1,9 @@
 <h1>Author's information</h1>
   <div class="container">
-    <p>First name: <%= Gossip.find(params[:id]).user.first_name %></p>
-    <p>Last name: <%= Gossip.find(params[:id]).user.last_name %></p>
-    <p>Description: <%= Gossip.find(params[:id]).user.description %></p>
-    <p>Email: <%= Gossip.find(params[:id]).user.email %></p>
-    <p>Age: <%= Gossip.find(params[:id]).user.age %></p>
-    <p>City: <%= link_to "#{Gossip.find(params[:id]).user.city.name}", {controller: "cities", action: "show", id: Gossip.find(params[:id]).id}%></p>
+    <p>First name: <%= @user.first_name %></p>
+    <p>Last name: <%= @user.last_name %></p>
+    <p>Description: <%= @user.description %></p>
+    <p>Email: <%= @user.email %></p>
+    <p>Age: <%= @user.age %></p>
+    <p>City: <%= link_to "#{@user.city.name}", {controller: "cities", action: "show", id: Gossip.find(params[:id]).id}%></p>
   </div>
