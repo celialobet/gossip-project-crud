@@ -40,6 +40,13 @@ class GossipsController < ApplicationController
   end
 
   def destroy
+    @gossip = Gossip.find(params[:id])
+    @gossip.destroy
+    redirect_to @gossip
   end
+
+  # def new_gossip_comment
+  #   @gossip = Gossip.find(params[:id])
+  # end
   
 end

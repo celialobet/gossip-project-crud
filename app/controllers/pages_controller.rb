@@ -13,11 +13,4 @@ class PagesController < ApplicationController
     params[:user_name]
   end
 
-  def show_gossip
-    @show_specific_gossip = Gossip.find(params[:id])
-  end
-
-  def show_author
-  end  
-
 end

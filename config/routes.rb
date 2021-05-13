@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  root 'pages#home'
-  get '/', to: 'pages#home'
+  root 'gossips#index'
+  get '/gossips', to: 'gossips#index'
   get '/team', to: 'pages#team'
   get '/contact', to: 'pages#contact'
   get '/welcome/:user_name', to: 'pages#welcome'
-  get '/user/:id', to: 'pages#show_author'
+  get '/user/:id', to: 'users#show'
   resources :gossips
   resources :cities, only: [:show]
+  resources :gossips do
+    resources :comments
+  end
+  resources :users
 end

@@ -7,4 +7,3 @@
     <p>Age: <%= Gossip.find(params[:id]).user.age %></p>
     <p>City: <%= link_to "#{Gossip.find(params[:id]).user.city.name}", {controller: "cities", action: "show", id: Gossip.find(params[:id]).id}%></p>
   </div>
-      

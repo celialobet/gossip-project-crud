@@ -3,7 +3,18 @@
     <%= msg %>
   </div>
 <% end %>
+
 <br>
+<div class="text-center">
+<h1>Welcome to The Gossip Project!</h1>
+<br>
+<a href="<%= new_gossip_path %>" class="btn btn-primary">Create a New Gossip</a>
+</div>
+<br>
+<div class="text-center">
+  <p>Here are our juicy gossips:</p>
+</div>
+
 
 <div class="container">
   <div class="list-group">
@@ -14,9 +25,9 @@
           <small>3 days ago</small>
         </div>
         
-        <small>Author of the gossip: <%= link_to "#{gossip.user.first_name}",{controller: "pages", action: "show_author", id: gossip.id} %></small>
+        <small>Author of the gossip: <%= link_to "#{gossip.user.first_name}",{controller: "users", action: "show", id: gossip.id} %></small>
     
-        <p class="mb-1"><%= link_to "Read the gossip", {controller: "gossips", action: "show", id: gossip.id}, class: "btn btn-primary mt-3" %></p>
+        <p class="mb-1"><%= link_to "Read the gossip", {controller: "gossips", action: "show", id: gossip.id}, class: "btn btn-secondary mt-3" %></p>
       </div>
     <% end %>
   </div>
