@@ -19,12 +19,12 @@ end
 
 10.times do
   cities_list = City.all
-  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Hipster.sentence, email:Faker::Internet.email, age: Faker::Number.between(from: 15, to: 75), city: cities_list.sample)
+  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Hipster.sentence, email:Faker::Internet.email, age: Faker::Number.between(from: 15, to: 75), city: cities_list.sample, password: "Test1234")
 end
 
 20.times do
   u = User.all.sample
-  gossip = Gossip.create(title: Faker::TvShows::BojackHorseman.character, content: Faker::TvShows::BojackHorseman.quote, user: u)
+  gossip = Gossip.create(title: Faker::Address.city, content: Faker::TvShows::BojackHorseman.quote, user: u)
 end
 
 # require 'faker'
